@@ -59,3 +59,13 @@ pnpm dev
 ```
 
 Your app template should now be running on [localhost:3000](http://localhost:3000/).
+
+ env $(cat .env | xargs) | docker build \
+  --build-arg AUTH_TRUST_HOST \
+  --build-arg OPENAI_API_KEY \
+  --build-arg AUTH_SECRET \
+  --build-arg AZURE_API_KEY \
+  --build-arg AZURE_RESOURCE_NAME \
+  --build-arg PORT \
+  --build-arg POSTGRES_URL \
+  -t my-chatbot-app-2 .
